@@ -1,0 +1,20 @@
+# open the GPS device for reading
+$ sudo gpsd /dev/ttyACM0 -F /var/run/gpsd.sock
+
+# formatted gps output
+$ gpsmon
+# OR
+$ cgps
+
+# raw gps output
+$ cat /dev/ttyACM0
+
+# this can be piped into a file
+$ cat /dev/ttyACM0 | gpsLog.txt
+
+# or use gpspipe
+$ gpspipe -r -o gpsLog.txt
+# this will output raw NMEA sentences
+
+# limit the out put to get 5 gps values
+$ head -95 /dev/ttyACM0 | grep GPGLL | python GPGLLout.py

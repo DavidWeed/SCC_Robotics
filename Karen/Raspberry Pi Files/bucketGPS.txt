@@ -1,0 +1,16 @@
+$GPGLL,3346.83514,N,11748.56195,W,040428.00,A,D*78
+
+Latitude = 33 degrees 46 minutes 50.1084 seconds N
+Longitude = 117 degrees 48 minutes 33.717 seconds W
+$GPGLL,3346.83513,N,11748.56195,W,040429.00,A,D*7E
+
+Latitude = 33 degrees 46 minutes 50.1078 seconds N
+Longitude = 117 degrees 48 minutes 33.717 seconds W
+$GPGLL,3346.83513,N,11748.56196,W,040430.00,A,D*75
+
+Latitude = 33 degrees 46 minutes 50.1078 seconds N
+Longitude = 117 degrees 48 minutes 33.7176 seconds W
+$GPGLL,3346.83513,N,11748.56200,W,040431.00,A,D*78
+
+Latitude = 33 degrees 46 minutes 50.1078 seconds N
+Longitude = 117 degrees 48 minutes 33.72 seconds W
