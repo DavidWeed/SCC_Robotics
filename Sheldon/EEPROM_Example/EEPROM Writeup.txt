@@ -1,0 +1,91 @@
+EEPROM Read and Write
+
+EEPROM stands for Electronics Erasable Read Only Memory
+
+Each Arduino Board has a different amount of storage onboard most boards contain atleast 1 kB while the Mega conatins 4 kB some of the smaller boards only have 0.5 kB
+
+We are using the Leonardo on Sheldon and the Uno for testing so we are working with 1kB on both.
+
+
+We will be storing float data so each piece of information is 4 bytes
+we will also store one int at the begining of the EEPROM to show how much info we should read as well as what address to write to next
+
+
+ ADDR |   DATA    |
+--------------------
+|0x00 | 0000 0000 |
+|0x01 | 0000 0000 |
+|0x02 | 0000 0000 |
+|0x03 | 0000 0000 | <- end of the first 4 bytes
+|0x04 | 0000 0000 |    so this is the end of the first int
+|0x05 | 0000 0000 |
+|0x06 | 0000 0000 |
+|0x07 | 0000 0000 |
+|0x08 | 0000 0000 |
+|0x09 | 0000 0000 |
+
+
+Since we are using floats instead of bytes we will use the EEPROM get() and put()
+
+EEPROM.get(address, data)
+	the data parameter is the variable that will store the inforamtion at that address
+	
+	int address = 4;
+	float data = 0.0f;
+	EEPROM.get(address, data);
+	
+	//data now hold the value from memory
+	
+	
+EEPROM.put(address, data)
+	the data parameter is what should be written to the EEPROM starting at that address
+	
+	int address = 0;
+	float data = 3.14f;
+	EEPROM.put(address, data);
+
+	//addresses 4,5,6,7 now contain 3.14 as 0100 0000  0100 1000  1111 0101  1100 0011
+	//converted using this site https://www.h-schmidt.net/FloatConverter/IEEE754.html
+	
+Using this information we can create a system that allows us to write data and then increment out counter then store that counter in memory. This way when we want to read data we know how much there is and when we want to continue writing we can continue where we left of in memory.
+
+we define a few custom functions and a variable that help us do this
+
+int nextAddress = 4;
+
+template<class T> //the template is a little overkill since we onyl use floats realistically
+void eepromWrite(T data)
+{
+	EEPROM.put(nextAddress, data);
+	nextAddress += sizeof(data);
+	EEPROM.put(0, nextAddress);
+}
+
+void eepromReadAll()
+{
+	float tempData;
+	for (int i = 4; i < nextAddress; i += 4)
+	{		
+		EEPROM.get(i, tempData);
+		Serial.println(double(tempData), 3);
+	}
+}
+
+
+Now at the begining of reading we just use the built in function to see how much there is and then we use our eepromReadAll function
+
+int nextAddress = 0;
+
+void setup()
+{
+	EEPROM.get(0, nextAddress)
+	eepromReadAll();
+}
+
+
+
+If we want to continue writing to the end of that data we just need to make sure that the nextAddress varibale is correct by udating from the memory
+
+EEPROM.get(0, nextAddress);
+
+after that our eepromWrite function can add on to the end of that data.

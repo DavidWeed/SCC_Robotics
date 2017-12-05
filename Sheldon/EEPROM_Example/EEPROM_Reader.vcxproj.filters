@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="EEPROM_Reader.ino" />
+    <None Include="EEPROM_Example.ino" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="__vm\.EEPROM_Reader.vsarduino.h">
+    <ClInclude Include="__vm\.EEPROM_Example.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
