@@ -1,4 +1,4 @@
-Karen was the attempt from 2016
+Karen is the 2017 attempt at the UCI Rescue Robotics Competition
 
 The main system design was as follows:
 
