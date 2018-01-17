@@ -1,0 +1,74 @@
+Movment Example
+
+We are working with the MINDSi Robotocs kit but all of the commands we need for movment are a part of Arduino in the Servo library. 
+
+The Servos work is that a PWM signal is sent that corresponds to the angle that it should turn too. Arduino makes this easy because instead of having to worry about that underlying signal we can just give and angle measure in degrees.
+
+Servo <-> Arduino
+ VCC  ---   5v
+ GND  ---   GND
+ Sig  ---   10 
+ 
+There are a few basic commands we need to know to work with servos.
+
+Servo myServo;
+	Creates a servo object that we use to control it.
+
+myServo.attach(int pinNum)
+	Tells the program object which pin the servo is attached to.
+	
+myServo.write(int angle)
+	Sets the angle that the servo should turn to.
+	
+Our kit has a special situation becasue while the front and back steering servos are used for turning as usual our main drive motor is also controlled by a servo object but the hardware is an speed controller. So the values we can write are a little different for each one.
+
+Turning Servos 
+   0 90 180 
+    \ | /
+	
+Drive Servo 
+
+0      : Brake
+1-89   : Forward smaller number is faster 
+90     : Neutral
+91-180 : Reverse larger number is faster
+
+
+Using this info we can already write an example sketch.
+I was unable to test this as the Arduino would not connect to computer.
+
+
+#include <Servo.h>
+
+Servo driveServo;
+Servo frontServo;
+Servo backServo;
+
+void setup()
+{
+	driveServo.attach(3);
+	frontServo.attach(5);
+	backServo.attach(6);
+
+	driveServo.write(90);
+	frontServo.write(90);
+	backServo.write(90);
+
+	driveServo.write(70);
+	delay(500);
+	frontServo.write(45);
+	backServo.write(45);
+	delay(500);
+	frontServo.write(135);
+	backServo.write(135);
+	delay(500);
+
+	driveServo.write(90);
+	frontServo.write(90);
+	backServo.write(90);
+}
+
+void loop()
+{
+
+}

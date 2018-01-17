@@ -7,6 +7,7 @@ Tested using an Arduino\Genuino Uno with nothing connected.
 
 #include <EEPROM.h>
 
+//Prototypes
 template<class T>
 void eepromWrite(T data);
 void eepromReadAll();
