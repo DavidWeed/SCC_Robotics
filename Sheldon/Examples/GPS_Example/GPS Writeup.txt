@@ -2,13 +2,13 @@ GPS Data Collection
 
 GPS stands for Global Positioning System.
 
-The basic idea of GPS is that stallites in the sky send out signals to a reciever. When the reciever collects these signals it uses the position of the satellites and the time it took for the signal to arrive to calculate its distance.
+The basic idea of GPS is that stallites in the sky send out signals to a receiver. When the receiver collects these signals it uses the position of the satellites and the time it took for the signal to arrive to calculate its distance.
 
 There is a good description on the Wikipedia page. 
 
 https://en.wikipedia.org/wiki/Global_Positioning_System#Basic_concept_of_GPS
 
-The specific reciever we are using is the LS20031 from Sparkfun.
+The specific receiver we are using is the LS20031 from Sparkfun.
 
 https://www.sparkfun.com/products/8975
 
@@ -30,7 +30,7 @@ GPS PINS <-> Arduino Pins
    2     --- No Connection
    1     ---     3v3
    
-To recieve raw data from the GPS use this sketch
+To receive raw data from the GPS use this sketch
 
 void setup() 
 {
@@ -55,9 +55,9 @@ $GPGSV,1,1,00*79
 $GPRMC,105317.709,V,8960.0000,N,00000.0000,E,0.00,0.00,010610,,,N*78
 $GPVTG,0.00,T,,M,0.00,N,0.00,K,N*32
 
-This data is formatted as NMEA senteces.
+This data is formatted as NMEA sentences.
 
-The data we want is the position data like Latitude and Longitiude
+The data we want is the position data like Latitude and Longitude.
 
 Those two pieces of info are contained in the GPGLL sentence.
 
@@ -71,7 +71,7 @@ We could do some fancy string manipulation in order to extract the data we want 
 Install Link: http://arduiniana.org/libraries/tinygps/
 
 
-Rather than just outputing the raw data to the serial monitor the TinyGPS library allows us to create a GPS object that can then be used to format our data into a more readable format.
+Rather than just outputting the raw data to the serial monitor the TinyGPS library allows us to create a GPS object that can then be used to format our data into a more readable format.
 
 After installing the library there is an example program included that we can use to show the power of this library.
 
@@ -82,7 +82,7 @@ in the setup method change ss.begin(4800); to ss.begin(57600);
 Also take in the comments at the top what pin to hookup the GPS to.
 For me I connected GPS Pin 3 to Arduino pin 4.
 
-I recieved some output like this.
+I received some output like this.
 
 Testing TinyGPS library v. 13
 by Mikal Hart
@@ -95,14 +95,14 @@ Sats HDOP Latitude  Longitude  Fix  Date       Time     Date Alt    Course Speed
 7    172  33.780605 -117.809272112  00/00/2000 02:17:32 122  84.50  ****** ***** ***   8760     34.19  NE    2923  10        29       
 
 
-Even though this example sketch gives us alot of cool data we don't need all of this information just the Lat and Lon.
+Even though this example sketch gives us a lot of cool data we don't need all of this information just the Lat and Lon.
 
 Looking through the code provided we can see what we would need to get the data we want.
 
 
 #include <SoftwareSerial.h>
 #include <TinyGPS.h>
-	These include the two libaries we need.
+	These include the two libraries we need.
 	SoftwareSerial is included with Arduino
 	
 TinyGPS gps;
@@ -112,13 +112,13 @@ SoftwareSerial ss(4, 3);
 	
 Serial.begin(115200);
 ss.begin(57600);
-	Start communicating with the serial montior and GPS
+	Start communicating with the serial monitor and GPS
 	
 gps.f_get_position(&lat, &lon, &age);
-	This is an intersting function as it takes three refrences to variables as its arguments. This means we must create these variables first.
+	This is an interesting function as it takes three references to variables as its arguments. This means we must create these variables first.
 
 smartdelay(1000);
-	This function is actually defined beneath loop and is used instead of the standard delay function. This is the core of TinyGPS becuase each time you would normally spend pauseing all execution you use that to update the data in the gps object.
+	This function is actually defined beneath loop and is used instead of the standard delay function. This is the core of TinyGPS because each time you would normally spend pausing all execution you use that to update the data in the gps object.
 		
 	We need to make sure that this function is included in our program as it isnt part of the library.
 	
@@ -136,7 +136,7 @@ smartdelay(1000);
 Using this knowledge we can write and example sketch to just get the float data and output it to the serial monitor.
 
 
-/*GPS Pin 3 to Ard Pin 4*/
+/*GPS Pin 3 to Arduino Pin 4*/
 
 #include <SoftwareSerial.h>
 #include <TinyGPS.h>
