@@ -1,6 +1,6 @@
-Movment Example
+Movement Example
 
-We are working with the MINDSi Robotocs kit but all of the commands we need for movment are a part of Arduino in the Servo library. 
+We are working with the MINDSi Robotics kit but all of the commands we need for movement are a part of Arduino in the Servo library. 
 
 The Servos work is that a PWM signal is sent that corresponds to the angle that it should turn too. Arduino makes this easy because instead of having to worry about that underlying signal we can just give and angle measure in degrees.
 
@@ -20,7 +20,7 @@ myServo.attach(int pinNum)
 myServo.write(int angle)
 	Sets the angle that the servo should turn to.
 	
-Our kit has a special situation becasue while the front and back steering servos are used for turning as usual our main drive motor is also controlled by a servo object but the hardware is an speed controller. So the values we can write are a little different for each one.
+Our kit has a special situation because while the front and back steering servos are used for turning as usual our main drive motor is also controlled by a servo object but the hardware is an speed controller. So the values we can write are a little different for each one.
 
 Turning Servos 
    0 90 180 

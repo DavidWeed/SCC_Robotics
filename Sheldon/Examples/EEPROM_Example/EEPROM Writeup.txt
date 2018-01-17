@@ -2,13 +2,13 @@ EEPROM Read and Write
 
 EEPROM stands for Electronics Erasable Read Only Memory
 
-Each Arduino Board has a different amount of storage onboard most boards contain atleast 1 kB while the Mega conatins 4 kB some of the smaller boards only have 0.5 kB
+Each Arduino Board has a different amount of storage on board most boards contain at least 1 kB while the Mega contains 4 kB some of the smaller boards only have 0.5 kB
 
 We are using the Leonardo on Sheldon and the Uno for testing so we are working with 1kB on both.
 
 
 We will be storing float data so each piece of information is 4 bytes
-we will also store one int at the begining of the EEPROM to show how much info we should read as well as what address to write to next
+we will also store one int at the beginning of the EEPROM to show how much info we should read as well as what address to write to next
 
 
  ADDR |   DATA    |
@@ -28,7 +28,7 @@ we will also store one int at the begining of the EEPROM to show how much info w
 Since we are using floats instead of bytes we will use the EEPROM get() and put()
 
 EEPROM.get(address, data)
-	the data parameter is the variable that will store the inforamtion at that address
+	the data parameter is the variable that will store the information at that address
 	
 	int address = 4;
 	float data = 0.0f;
@@ -72,7 +72,7 @@ void eepromReadAll()
 }
 
 
-Now at the begining of reading we just use the built in function to see how much there is and then we use our eepromReadAll function
+Now at the beginning of reading we just use the built in function to see how much there is and then we use our eepromReadAll function
 
 int nextAddress = 0;
 
@@ -84,7 +84,7 @@ void setup()
 
 
 
-If we want to continue writing to the end of that data we just need to make sure that the nextAddress varibale is correct by udating from the memory
+If we want to continue writing to the end of that data we just need to make sure that the nextAddress variable is correct by updating from the memory
 
 EEPROM.get(0, nextAddress);
 

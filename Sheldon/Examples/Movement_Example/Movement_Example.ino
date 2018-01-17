@@ -1,3 +1,16 @@
+/* Movement Example
+David Weed 1/16/2018
+
+Sheldon should be setup as follows
+
+   Pin   <->   Arduino
+-----------------------
+  Drive           3
+Front Servo       5
+Rear Servo        6
+
+This example moves Sheldon forward left and then right then stops.
+*/
 
 #include <Servo.h>
 

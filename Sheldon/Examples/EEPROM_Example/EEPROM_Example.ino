@@ -1,7 +1,7 @@
 /* EEPROM Test Program
 David Weed 12/4/17
 
-This program demonstrates the reading a writing of float data to the interal EEPROM.
+This program demonstrates the reading a writing of float data to the internal EEPROM.
 Tested using an Arduino\Genuino Uno with nothing connected.
 */
 
@@ -17,7 +17,7 @@ void eepromClear();
 //starts at 4 because it takes up 0,1,2,3
 int nextAddress = 4;
 
-//whether you want to write data or read it we could move this to a phyisical switch to avoid code edits
+//whether you want to write data or read it we could move this to a physical switch to avoid code edits
 bool read = true;
 
 void setup()

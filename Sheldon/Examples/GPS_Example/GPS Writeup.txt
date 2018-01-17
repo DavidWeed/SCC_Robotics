@@ -2,7 +2,7 @@ GPS Data Collection
 
 GPS stands for Global Positioning System.
 
-The basic idea of GPS is that stallites in the sky send out signals to a receiver. When the receiver collects these signals it uses the position of the satellites and the time it took for the signal to arrive to calculate its distance.
+The basic idea of GPS is that satellites in the sky send out signals to a receiver. When the receiver collects these signals it uses the position of the satellites and the time it took for the signal to arrive to calculate its distance.
 
 There is a good description on the Wikipedia page. 
 
@@ -12,7 +12,7 @@ The specific receiver we are using is the LS20031 from Sparkfun.
 
 https://www.sparkfun.com/products/8975
 
-We can easily recieve data from our GPS using basic Arduino Serial comands.
+We can easily recieve data from our GPS using basic Arduino Serial commands.
 
 If we look at the headers on our GPS when they are plugged into a breadboard the pinout is:
 
