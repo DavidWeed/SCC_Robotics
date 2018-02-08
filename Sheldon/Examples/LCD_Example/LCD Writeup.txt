@@ -1,0 +1,64 @@
+Using the LCD 
+
+An LCD or Liquid Crystal Display is used in many kinds for systems to show pertinent information. The usage ranges from cars to DVD players.
+
+
+We will be using an LCD to show information on Sheldon. This can be used for diagnostics as well as making sure that we are getting accurate data from our sensors.
+
+
+There are a lot of connections between the LCD board and the Arduino but the specific pins don't matter. The ones I used are below.
+
+VSS  =   GND   
+VDD  =   5V
+V0   =   10k pot wiper
+RS   =   2
+RW   =   GND
+E    =   3
+D4   =   4
+D5   =   5
+D6   =   6
+D7   =   7
+A    =   5V through 220 Ohm resistor
+K    =   GND
+
+
+This requires a little more setup than other devices. It is recommended to use a 220 ohm resistor and a 10k potentiometer. Other than the connections shown above the pot should be hooked up to 5v and GND.
+
+
+I am going to start with the example sketch and explain what it does after so we can see all the parts at once. 
+
+
+
+#include <LiquidCrystal.h>
+
+#define RS 2
+#define EN 3
+#define D4 4
+#define D5 5
+#define D6 6
+#define D7 7
+
+LiquidCrystal lcd(RS, EN, D4, D5, D6, D7);
+
+void setup() 
+{
+  lcd.begin(16, 2);
+  lcd.print("Hello, World!");
+}
+
+void loop() 
+{  
+  lcd.setCursor(0, 1);
+  lcd.print(millis()/1000);
+}
+
+
+
+So the first line adds the Arduino library so that we can use the LiquidCrystal object. After defining the pins so that they can be changed easier later we create the LiquidCrystal object and call it lcd. We tell it where all our pins are so it display correctly. 
+
+With in setup we first set how large our screen is and tell it to show the string "Hello, World!"
+
+In loop we set the cursor position to the second line first character and display how many seconds it has been since the program began.
+
+
+This is the basics of using an LCD but we could also write variables and other info to the display.

@@ -1,0 +1,63 @@
+This reference should be used to describe what is attached to Sheldon where. We will be adding several sensors and devices that need to be kept track of.
+
+
+Devices are connected to a breadboard and then to the Arduino with hookup wires of different colors.
+
+Red     =  5v
+Orange  =  3.3v
+Black   =  GND
+Green   =  GND
+Blue    =  SDA, Rx
+Yellow  =  SCL, Tx
+White   =  Misc.
+
+
+Each device will have a physical name, a variable name, and the pin it is attached to.
+
+When programming use the variable name as it is described here so that we can be consistent.
+
+
+Ping Sensors
+---------------------------------------------
+Left Sensor   |    left_ping     |    A2
+Front Sensor  |    front_ping    |    A1    
+Right Sensor  |    right_ping    |    A0
+
+
+Motors and Servos
+---------------------------------------------
+Drive Motor   |   drive          |    9
+Front Steer   |   front_steer    |    10
+Back Steer    |   back_steer     |    11
+
+
+9DOF Stick
+---------------------------------------------
+Serial Data   |       SDA        |    A3
+Serial Clock  |       SCL        |    A4
+   
+   
+GPS 
+---------------------------------------------
+Transmit      |      GPS_TX      |    A5
+  
+
+LCD Screen
+---------------------------------------------
+VSS           |                  |    GND   
+VDD           |                  |    5V
+V0            |                  |    10k pot
+Reset         |        RS        |    2
+Read/Write    |                  |    GND
+Enable        |        EN        |    3
+Data4         |        D4        |    4
+Data5         |        D5        |    5
+Data6         |        D6        |    6
+Data7         |        D7        |    7
+A             |                  |    5V
+K             |                  |    GND
+
+	
+
+  
+  

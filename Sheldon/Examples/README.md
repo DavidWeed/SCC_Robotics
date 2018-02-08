@@ -1,6 +1,6 @@
 ## Examples
 
-This folder contains examples for the main sections of Sheldon's functionality.
+This folder contains examples for the main sections of Sheldon's functionality. Each example includes a writeup explaining the basic functionality as well as an example sketch that can be opened in Visual Studio using the .sln if you have installed the Arduino add-on, or directly in the Arduino IDE using the .ino file.
 
 
 #### Movement

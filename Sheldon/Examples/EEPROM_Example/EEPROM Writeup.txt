@@ -53,7 +53,7 @@ we define a few custom functions and a variable that help us do this
 
 int nextAddress = 4;
 
-template<class T> //the template is a little overkill since we onyl use floats realistically
+template<class T> //the template is a little overkill since we only use floats realistically
 void eepromWrite(T data)
 {
 	EEPROM.put(nextAddress, data);

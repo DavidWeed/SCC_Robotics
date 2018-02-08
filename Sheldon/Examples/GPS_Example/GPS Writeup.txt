@@ -95,6 +95,7 @@ Sats HDOP Latitude  Longitude  Fix  Date       Time     Date Alt    Course Speed
 7    172  33.780605 -117.809272112  00/00/2000 02:17:32 122  84.50  ****** ***** ***   8760     34.19  NE    2923  10        29       
 
 
+
 Even though this example sketch gives us a lot of cool data we don't need all of this information just the Lat and Lon.
 
 Looking through the code provided we can see what we would need to get the data we want.
