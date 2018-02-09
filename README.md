@@ -10,5 +10,5 @@ She placed *1st* in design and *3rd* in execution.
 
 ##### Sheldon
 Sheldon contains all of the code and examples for the 2018 attempt.</br>
-He had not yet competed.
+He has not yet competed.
 

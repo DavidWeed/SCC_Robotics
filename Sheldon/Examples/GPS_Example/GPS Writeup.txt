@@ -12,7 +12,7 @@ The specific receiver we are using is the LS20031 from Sparkfun.
 
 https://www.sparkfun.com/products/8975
 
-We can easily recieve data from our GPS using basic Arduino Serial commands.
+We can easily receive data from our GPS using basic Arduino Serial commands.
 
 If we look at the headers on our GPS when they are plugged into a breadboard the pinout is:
 
@@ -110,6 +110,8 @@ TinyGPS gps;
 SoftwareSerial ss(4, 3);
 	The creation of the two objects we use.
 	//ss(rx_pin, tx_pin)
+	//the Rx pin is what pin we will receive data only
+	// this means that we will attach the GPS' Tx to the Arduino Rx
 	
 Serial.begin(115200);
 ss.begin(57600);
@@ -121,7 +123,7 @@ gps.f_get_position(&lat, &lon, &age);
 smartdelay(1000);
 	This function is actually defined beneath loop and is used instead of the standard delay function. This is the core of TinyGPS because each time you would normally spend pausing all execution you use that to update the data in the gps object.
 		
-	We need to make sure that this function is included in our program as it isnt part of the library.
+	We need to make sure that this function is included in our program as it isn't part of the library.
 	
 	static void smartdelay(unsigned long ms)
 	{
