@@ -7,6 +7,7 @@ Tested using the LS20031 GPS from Sparkfun.
 Connected GPS Pin Tx to Arduino Pin Rx as well as 3v3 and GND to pin 4 and 1.
 */
 
+//edit this to change receive method
 #define USE_TINYGPS false
 
 #if USE_TINYGPS == true

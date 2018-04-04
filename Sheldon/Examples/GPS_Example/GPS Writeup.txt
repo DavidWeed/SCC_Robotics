@@ -32,6 +32,7 @@ GPS PINS <-> Arduino Pins
    
 To receive raw data from the GPS use this sketch
 
+//Arduino Leonardo uses Serial1
 void setup() 
 {
 	Serial.begin(57600);
@@ -105,13 +106,13 @@ Looking through the code provided we can see what we would need to get the data 
 #include <TinyGPS.h>
 	These include the two libraries we need.
 	SoftwareSerial is included with Arduino
-	
+
 TinyGPS gps;
 SoftwareSerial ss(4, 3);
 	The creation of the two objects we use.
-	//ss(rx_pin, tx_pin)
-	//the Rx pin is what pin we will receive data only
-	// this means that we will attach the GPS' Tx to the Arduino Rx
+	ss(rx_pin, tx_pin)
+	the Rx pin is what pin we will receive data only
+	this means that we will attach the GPS' Tx to the Arduino Rx
 	
 Serial.begin(115200);
 ss.begin(57600);
@@ -137,6 +138,7 @@ smartdelay(1000);
 	
 	
 Using this knowledge we can write and example sketch to just get the float data and output it to the serial monitor.
+
 
 
 /*GPS Pin 3 to Arduino Pin 4*/

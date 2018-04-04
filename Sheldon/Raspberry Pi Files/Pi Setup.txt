@@ -1,0 +1,19 @@
+## To install opencv and dependencies ##
+
+$ sudo apt-get update
+$ sudo apt-get install python-opencv
+$ sudo pip install imutils
+$ sudo pip install numpy
+
+
+## To start the python script when the Pi boots edits rc.local ##
+
+$sudo nano /etc/rc.local
+
+I added 
+
+python /home/pi/Pi_Files/CheckCamera.py &
+
+before exit 0
+
+

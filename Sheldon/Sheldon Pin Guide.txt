@@ -28,7 +28,6 @@ Motors and Servos
 ---------------------------------------------
 Drive Motor   |   drive          |    9
 Front Steer   |   front_steer    |    10
-Back Steer    |   back_steer     |    11
 
 
 9DOF Stick
@@ -39,7 +38,7 @@ Serial Clock  |       SCL        |    A4
    
 GPS 
 ---------------------------------------------
-Transmit      |      GPS_TX      |    A5
+Transmit      |      GPS_TX      |    0
   
 
 LCD Screen
