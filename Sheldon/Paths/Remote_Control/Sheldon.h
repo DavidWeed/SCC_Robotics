@@ -37,6 +37,7 @@ long lat, lon;
 			while (Serial1.available())
 				gps.encode(Serial1.read());
 		} while (millis() - start < ms);
+    gps.get_position(&lat, &lon);
 	}
 
 #else
@@ -54,6 +55,7 @@ long lat, lon;
 			while (Serial.available())
 				gps.encode(Serial.read());
 		} while (millis() - start < ms);
+    gps.get_position(&lat, &lon);
 	}
 
 #endif
