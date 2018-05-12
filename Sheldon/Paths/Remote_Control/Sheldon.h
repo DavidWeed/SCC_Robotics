@@ -70,9 +70,9 @@ int nextAddress = 4;
 template<class T>
 void eepromWrite(T data)
 {
-	EEPROM.put(nextAddress, data);
-	nextAddress += sizeof(data);
-	EEPROM.put(0, nextAddress);
+  EEPROM.put(nextAddress, data);
+  nextAddress += sizeof(data);
+  EEPROM.put(0, nextAddress);
 }
 
 void eepromReadAll()
